@@ -30,26 +30,27 @@ def kosi_hitac(v0, kut_st):
         tt=t[:j]
 
         
-    fig, axs = plt.subplots(2, 2)
+    plt. subplot(1, 3 ,1)
+    plt.plot(xx,yy)
+    plt.title('x-y graf')
+    plt.xlabel('$x[m]$')
+    plt.ylabel('$y[m]$')
 
-    axs[0,0].plot(xx, yy)
-    axs[0,0].set_title("x-y graf")
-    axs[0,0].set_xlabel('$x[m]$')
-    axs[0,0].set_ylabel('$y[m]$')
+    plt. subplot(1, 3 ,2)
+    plt.plot(tt,xx)
+    plt.title('x-t graf')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$x[m]$')
 
-    axs[0, 1].plot(tt, xx)
-    axs[0, 1].set_title('x-t graf')
-    axs[0,1].set_xlabel('$t[s]$')
-    axs[0,1].set_ylabel('$x[m]$')
-
-    axs[1, 0].plot(tt, yy)
-    axs[1, 0].set_title('y-t graf')
-    axs[1,0].set_xlabel('$t[s]$')
-    axs[1,0].set_ylabel('$y[m]$')
+    plt. subplot(1, 3 ,3)
+    plt.plot(tt,yy)
+    plt.title('y-t graf')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$y[m]$')
 
     plt.show()
 
-kosi_hitac(25, 75)
+kosi_hitac(45, 60)
 
 
 
