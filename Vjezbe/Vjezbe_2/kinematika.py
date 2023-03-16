@@ -5,8 +5,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def jednoliko_gibanje(F, m):
-    t=np.arange(0,10,0.001) #checkpointovi mjerenja 
+def jednoliko_gibanje(F, m, ts):
+    t=np.arange(0,ts,0.001) 
     akc=np.zeros((len(t), 1))
     brz=np.zeros((len(t), 1))
     xevi=np.zeros((len(t),1))
@@ -17,30 +17,31 @@ def jednoliko_gibanje(F, m):
         brz[i+1]=float(brz[i]+ a*0.001)
         xevi[i+1]=float(xevi[i] + brz[i]*0.001)
 
-   
-    fig, axs = plt.subplots(2, 2)
+    plt.subplot(1, 3 ,1)
+    plt.plot(t, xevi)
+    plt.title('x-t')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$x[m]$')
 
-    axs[0,0].plot(t, xevi)
-    axs[0,0].set_title('x-t')
-    axs[0,0].set_xlabel('$t[s]$')
-    axs[0,0].set_ylabel('$x[m]$')
+    plt.subplot(1, 3 ,2)
+    plt.plot(t, brz)
+    plt.title('v-t graf')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$v[m/s]$')
 
-    axs[0,1].plot(t, brz)
-    axs[0,1].set_title('v-t')
-    axs[0,1].set_xlabel('$t[s]$')
-    axs[0,1].set_ylabel('$v[m/s]$')
-
-    axs[1,0].plot(t, akc)
-    axs[1,0].set_title('a-t')
-    axs[1,0].set_xlabel('$t[s]$')
-    axs[1,0].set_ylabel('$a[m/s^2]$')
-
+    plt.subplot(1, 3 ,3)
+    plt.plot(t, akc)
+    plt.title('a-t graf')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$a[m/s^2]$')
+    
+    
     plt.show()
 
 
-def kosi_hitac(v0, kut_st):
+def kosi_hitac(v0, kut_st, ts):
 
-    t=np.arange(0,10, 0.001)
+    t=np.arange(0,ts, 0.001)
     kut_rad= kut_st*np.pi/180
 
     brzine_y=np.zeros((len(t), 1))
@@ -55,31 +56,32 @@ def kosi_hitac(v0, kut_st):
     for j in range(len(t)-1):
         brzine_y[j+1]=brzine_y[j] - 9.81*0.001
         list_y[j+1]=list_y[j] + brzine_y[j]*0.001
-
-        list_x[j+1]=list_x[j] + v0_x*0.001
         if list_y[j]<0:
             break
         xx=list_x[:j]
         yy=list_y[:j]
-        tt=t[:j]
+
+    for i in range(len(t)-1):
+        list_x[i+1]=list_x[i] + v0_x*0.001
 
         
-    fig, axs = plt.subplots(2, 2)
+    plt.subplot(1, 3 ,1)
+    plt.plot(xx,yy)
+    plt.title('x-y graf')
+    plt.xlabel('$x[m]$')
+    plt.ylabel('$y[m]$')
 
-    axs[0,0].plot(xx, yy)
-    axs[0,0].set_title("x-y graf")
-    axs[0,0].set_xlabel('$x[m]$')
-    axs[0,0].set_ylabel('$y[m]$')
+    plt.subplot(1, 3 ,2)
+    plt.plot(t,list_x)
+    plt.title('x-t graf')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$x[m]$')
 
-    axs[0, 1].plot(tt, xx)
-    axs[0, 1].set_title('x-t graf')
-    axs[0,1].set_xlabel('$t[s]$')
-    axs[0,1].set_ylabel('$x[m]$')
-
-    axs[1, 0].plot(tt, yy)
-    axs[1, 0].set_title('y-t graf')
-    axs[1,0].set_xlabel('$t[s]$')
-    axs[1,0].set_ylabel('$y[m]$')
+    plt.subplot(1, 3 ,3)
+    plt.plot(t,list_y)
+    plt.title('y-t graf')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$y[m]$')
 
     plt.show()
 

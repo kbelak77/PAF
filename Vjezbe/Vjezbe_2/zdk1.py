@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def jednoliko(F, m):
-    t=np.arange(0,10,0.001) #checkpointovi mjerenja 
+    t=np.arange(0,10,0.001) 
     akc=np.zeros((len(t), 1))
     brz=np.zeros((len(t), 1))
     xevi=np.zeros((len(t),1))
@@ -18,22 +18,23 @@ def jednoliko(F, m):
         xevi[i+1]=float(xevi[i] + brz[i]*0.001)
 
    
-    fig, axs = plt.subplots(2, 2)
+    plt. subplot(1, 3 ,1)
+    plt.plot(t, xevi)
+    plt.title('x-t')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$x[m]$')
 
-    axs[0,0].plot(t, xevi)
-    axs[0,0].set_title('x-t')
-    axs[0,0].set_xlabel('$t[s]$')
-    axs[0,0].set_ylabel('$x[m]$')
+    plt. subplot(1, 3 ,2)
+    plt.plot(t, brz)
+    plt.title('v-t graf')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$v[m/s]$')
 
-    axs[0,1].plot(t, brz)
-    axs[0,1].set_title('v-t')
-    axs[0,1].set_xlabel('$t[s]$')
-    axs[0,1].set_ylabel('$v[m/s]$')
-
-    axs[1,0].plot(t, akc)
-    axs[1,0].set_title('a-t')
-    axs[1,0].set_xlabel('$t[s]$')
-    axs[1,0].set_ylabel('$a[m/s^2]$')
+    plt. subplot(1, 3 ,3)
+    plt.plot(t, akc)
+    plt.title('a-t graf')
+    plt.xlabel('$t[s]$')
+    plt.ylabel('$a[m/s^2]$')
 
     plt.show()
 
