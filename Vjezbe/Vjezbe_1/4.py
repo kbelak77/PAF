@@ -4,7 +4,7 @@
 def pravac(x1, y1, x2, y2):
     k=round(float((y2-y1)/(x2-x1)), 3)
     l=round(float(y1-k*x1), 3)
-    print('Jednadzba pravca je: y=', k,'x +', l)
+    print('Jednadzba pravca je: y=',k,'x +', l)
 
 
-pravac(4,5,6,7)
+pravac(4,5,6,-7)

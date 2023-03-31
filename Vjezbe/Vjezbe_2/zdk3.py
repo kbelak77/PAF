@@ -3,6 +3,6 @@
 
 import kinematika as kin
 
-kin.kosi_hitac(25, 50, 20)
+kin.kosi_hitac(25, 90, 20)
 kin.jednoliko_gibanje(400, 50, 20)
 

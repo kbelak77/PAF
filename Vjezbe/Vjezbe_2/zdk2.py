@@ -50,7 +50,7 @@ def kosi_hitac(v0, kut_st):
 
     plt.show()
 
-kosi_hitac(25, 80)
+kosi_hitac(10, 45)
 
 
 
