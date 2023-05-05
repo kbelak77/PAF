@@ -10,7 +10,7 @@ for el in list_t:
     c,d = P.kosi_hitac() #x, y
     list_x.append(c)
     list_y.append(d)
-txt = 'Eueler {}'
+txt = 'Euler {}'
 for i in range(len(list_t)):
     c = list_t[i]
     plt.plot(list_x[i], list_y[i], lw = 0.5, label = txt.format(c))
